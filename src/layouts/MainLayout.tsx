@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
-
-import Navbar from "../components/Navbar";
+import Navbar from "../components/fragments/Navbar";
+import Footer from "../components/fragments/Footer";
 
 type MainLayoutProps = {
   children: ReactNode;
@@ -12,12 +12,8 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       <Navbar />
 
       <main className="flex-1">{children}</main>
-      <footer>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quidem
-        cum repudiandae qui necessitatibus? Nam, voluptates perferendis amet sed
-        quam aliquid tempora magnam aperiam voluptatum sint ducimus porro
-        adipisci facere.
-      </footer>
+
+      <Footer />
     </div>
   );
 };
