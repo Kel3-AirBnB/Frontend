@@ -5,7 +5,7 @@ const Home = () => {
   const cardsData = [
     {
       imgSrc:
-        "https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+        "https://a0.muscache.com/im/pictures/miso/Hosting-702698881683757720/original/55666499-0446-4572-a12f-42aba2f575a6.jpeg?im_w=1200",
       title: "Nusa Penida, Bali",
       description: "Lorem ipsum dolor sit amet.",
     },
