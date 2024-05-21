@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import Navbar from "../components/fragments/Navbar";
 import Footer from "../components/fragments/Footer";
+import { Helmet } from "react-helmet";
 
 type MainLayoutProps = {
   children: ReactNode;
@@ -8,13 +9,23 @@ type MainLayoutProps = {
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar />
+    <>
+      <Helmet>
+        <title>Explore Beautiful Destinations in Indonesia</title>
+        <meta
+          name="description"
+          content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, fugiat."
+        />
+      </Helmet>
 
-      <main className="flex-1">{children}</main>
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
 
-      <Footer />
-    </div>
+        <main className="flex-1">{children}</main>
+
+        <Footer />
+      </div>
+    </>
   );
 };
 
