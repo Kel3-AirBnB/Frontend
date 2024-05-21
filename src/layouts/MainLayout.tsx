@@ -3,19 +3,22 @@ import Navbar from "../components/fragments/Navbar";
 import Footer from "../components/fragments/Footer";
 import { Helmet } from "react-helmet";
 
-type MainLayoutProps = {
-  children: ReactNode;
-};
+interface MetaData {
+  title: string;
+  description: string;
+}
 
-const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+interface MainLayoutProps {
+  meta: MetaData;
+  children: React.ReactNode;
+}
+
+const MainLayout: React.FC<MainLayoutProps> = ({ children, meta }) => {
   return (
     <>
       <Helmet>
-        <title>Explore Beautiful Destinations in Indonesia</title>
-        <meta
-          name="description"
-          content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, fugiat."
-        />
+        <title>{meta.title}</title>
+        <meta name="description" content={meta.description} />
       </Helmet>
 
       <div className="min-h-screen flex flex-col">

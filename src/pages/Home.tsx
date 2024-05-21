@@ -29,8 +29,16 @@ const Home = () => {
     },
   ];
 
+  //deklarasi meta data
+  const metaData = {
+    title: "Booking | Homepage",
+    description:
+      "Temukan kesempurnaan tempat menginap untuk petualangan Anda diaplikasi booking kami.",
+  };
+
   return (
-    <MainLayout>
+    //kirim meta data ke main layout 
+    <MainLayout meta={metaData}>
       <div className="flex items-center justify-center my-6">
         <div className="container mx-auto px-4 py-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
