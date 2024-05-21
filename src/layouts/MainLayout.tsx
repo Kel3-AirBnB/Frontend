@@ -8,10 +8,12 @@ type MainLayoutProps = {
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="w-full h-screen flex flex-col bg-white dark:bg-black overflow-auto font-roboto">
       <Navbar />
 
-      <main className="flex-1">{children}</main>
+      <main className="container mx-auto grow py-4 px-8 flex flex-col">
+        {children}
+      </main>
       <footer>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quidem
         cum repudiandae qui necessitatibus? Nam, voluptates perferendis amet sed
