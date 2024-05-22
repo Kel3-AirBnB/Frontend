@@ -1,27 +1,32 @@
+import { Link } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import { Heart, Star } from "lucide-react";
 
 const Home = () => {
   const cardsData = [
     {
+      id: 1,
       imgSrc:
         "https://a0.muscache.com/im/pictures/miso/Hosting-702698881683757720/original/55666499-0446-4572-a12f-42aba2f575a6.jpeg?im_w=1200",
       title: "Nusa Penida, Bali",
       description: "Lorem ipsum dolor sit amet.",
     },
     {
+      id: 2,
       imgSrc:
         "https://a0.muscache.com/im/pictures/miso/Hosting-702698881683757720/original/55666499-0446-4572-a12f-42aba2f575a6.jpeg?im_w=1200",
       title: "Mandalika, Lombok",
       description: "Lorem ipsum dolor sit amet.",
     },
     {
+      id: 3,
       imgSrc:
         "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTA2OTQxMjgxMTEyMzE3MDQ2MA%3D%3D/original/11023f6d-80d5-414d-9823-532957c163dd.jpeg?im_w=1200",
       title: "Sleman, Yogyakarta",
       description: "Lorem ipsum dolor sit amet.",
     },
     {
+      id: 4,
       imgSrc:
         "https://a0.muscache.com/im/pictures/hosting/Hosting-1122257324205360936/original/abc32c9e-2c8f-460a-9132-afff948f6e71.jpeg?im_w=1200",
       title: "Bandung, Jawa Barat",
@@ -37,7 +42,7 @@ const Home = () => {
   };
 
   return (
-    //kirim meta data ke main layout 
+    //kirim meta data ke main layout
     <MainLayout meta={metaData}>
       <div className="flex items-center justify-center my-6">
         <div className="container mx-auto px-4 py-8">
@@ -67,9 +72,14 @@ const Home = () => {
                 </div>
                 <div className="py-8 px-1 max-w-lg">
                   <div className="mb-3 flex items-center justify-between">
-                    <h1 className="block font-sans text-xl font-medium leading-snug tracking-normal text-blue-gray-900 antialiased">
-                      {item.title}
-                    </h1>
+                    <Link
+                      to={`/penginapan/${item.id}`}
+                      aria-label="redirect ke detail penginapan"
+                    >
+                      <h1 className="block font-sans text-xl font-medium leading-snug tracking-normal text-blue-gray-900 antialiased">
+                        {item.title}
+                      </h1>
+                    </Link>
                     <p className="flex items-center gap-1.5 font-sans text-base font-normal leading-relaxed text-blue-gray-900 antialiased">
                       <Star className="-mt-0.5 h-5 w-5" />
                       5.0

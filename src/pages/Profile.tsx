@@ -1,7 +1,7 @@
 import MainLayout from "@/layouts/MainLayout";
 import { Card, CardContent } from "@/components/fragments/Card";
-import { Input } from "@/components/fragments/Input";
-import { Button } from "@/components/fragments/Button";
+import { Input } from "@/components/elements/Input";
+import { Button } from "@/components/elements/Button";
 
 //deklarasi meta data
 const metaData = {
