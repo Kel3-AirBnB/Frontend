@@ -3,6 +3,8 @@ import Home from "@/pages/Home";
 import Profile from "@/pages/Profile";
 import NoPage from "@/pages/NoPage";
 import DetailPenginapan from "./pages/DetailPenginapan";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 const App = () => {
   return (
@@ -15,6 +17,8 @@ const App = () => {
           element={<DetailPenginapan />}
         />
         <Route path="*" element={<NoPage />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
