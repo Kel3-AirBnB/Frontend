@@ -68,7 +68,7 @@ const Navbar = () => {
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-64 mt-1 -ml-36 py-1 px-0">
               <DropdownMenuItem className="px-4 py-3 text-md font-semibold">
-                Daftar
+                <Link to="/register">Daftar</Link>
               </DropdownMenuItem>
               <DropdownMenuItem className="px-4 py-3 text-md font-normal">
                 Masuk

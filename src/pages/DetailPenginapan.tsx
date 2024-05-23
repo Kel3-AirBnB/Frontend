@@ -1,4 +1,3 @@
-// pages/DetailPenginapan.tsx
 import MainLayout from "@/layouts/MainLayout";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
@@ -26,7 +25,7 @@ const DetailPenginapan = () => {
   return (
     <MainLayout>
       <div className="p-3 border-t border-gray-300 shadow-lg fixed bottom-0 z-50 w-full bg-white lg:hidden md:hidden block">
-        <h5 className="text-lg font-bold mb-2">
+        <h5 className="text-lg font-bold mb-">
           Rp. 350.000
           <span className="text-sm text-gray-600 font-normal">/malam</span>
         </h5>
