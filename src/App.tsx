@@ -1,6 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import Home from "@/pages/Home";
 import Profile from "@/pages/Profile";
+import DaftarPenginapan from "@/pages/DaftarPenginapan";
+import DetailPenginapan from "@/pages/DetailPenginapan";
+import DaftarReservasi from "@/pages/DaftarReservasi";
 import NoPage from "@/pages/NoPage";
 import DetailPenginapan from "./pages/DetailPenginapan";
 import Register from "./pages/Register";
@@ -14,6 +19,13 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/Profile" element={<Profile />} />
         <Route path="/penginapan/:id_penginapan" element={<DetailPenginapan />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/daftar-penginapan" element={<DaftarPenginapan />} />
+        <Route
+          path="/penginapan/:id_penginapan"
+          element={<DetailPenginapan />}
+        />
+        <Route path="/daftar-reservasi" element={<DaftarReservasi />} />
         <Route path="*" element={<NoPage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
