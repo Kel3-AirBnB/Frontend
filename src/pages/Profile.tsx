@@ -52,7 +52,7 @@ const Profile = () => {
   return (
     <MainLayout meta={metaData}>
       <p className="font-bold px-6 mt-6">Welcome, John</p>
-      <Card className="mt-6">
+      <Card className="mt-6 border-none">
         <CardContent>
           <div className="bg-gradient-to-r from-[#FF385C] to-[#969696] h-16 rounded-t-lg"></div>
           <div className="p-6">
