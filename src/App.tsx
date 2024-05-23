@@ -5,6 +5,7 @@ import Home from "@/pages/Home";
 import Profile from "@/pages/Profile";
 import DaftarPenginapan from "@/pages/DaftarPenginapan";
 import DetailPenginapan from "@/pages/DetailPenginapan";
+import DaftarReservasi from "@/pages/DaftarReservasi";
 import NoPage from "@/pages/NoPage";
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
           path="/penginapan/:id_penginapan"
           element={<DetailPenginapan />}
         />
+        <Route path="/daftar-reservasi" element={<DaftarReservasi />} />
         <Route path="*" element={<NoPage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
