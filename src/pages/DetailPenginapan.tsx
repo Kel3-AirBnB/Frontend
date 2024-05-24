@@ -3,37 +3,62 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet/dist/images/marker-shadow.png";
 import { DatePicker } from "@/components/elements/DatePicker";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/elements/Button";
-import { Input } from "@/components/elements/Input";
 import {
   Card,
   CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/fragments/Card";
+import { useParams } from "react-router-dom";
+import { Penginapan } from "@/utils/apis/penginapan/type";
+import { getPenginapanById } from "@/utils/apis/penginapan/api";
+import isLoadingImage from "../assets/gray.png";
+import FormatPrice from "@/components/elements/FormatPrice";
 
 const DetailPenginapan = () => {
+  const { id_penginapan } = useParams();
+  const id = id_penginapan ? parseInt(id_penginapan) : undefined;
   const [selectedDate, setSelectedDate] = useState<Date | undefined>();
+  const [penginapan, setPenginapan] = useState<Penginapan | undefined>();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setIsLoading(true);
+
+    const fetchData = async () => {
+      try {
+        const data = await getPenginapanById(id!);
+        setPenginapan(data);
+        setIsLoading(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setIsLoading(false);
+      }
+    };
+
+    if (id !== undefined) {
+      fetchData();
+    }
+  }, [id]);
+
+  console.log(selectedDate);
+
+  console.log(penginapan);
 
   const handleDateSelect = (date: Date) => {
     setSelectedDate(date);
   };
 
-  console.log(selectedDate);
-
   return (
     <MainLayout>
+      {/* mobile screen */}
       <div className="p-3 border-t border-gray-300 shadow-lg fixed bottom-0 z-50 w-full bg-white lg:hidden md:hidden block">
         <h5 className="text-lg font-bold mb-">
           Rp. 350.000
           <span className="text-sm text-gray-600 font-normal">/malam</span>
         </h5>
-        <Input
-          type="number"
-          placeholder="Jumlah orang"
-          className="focus-visible:ring-0 focus-visible:ring-offset-0"
-        />
         <div className="flex pt-3">
           <DatePicker
             label="Tanggal mulai"
@@ -50,47 +75,33 @@ const DetailPenginapan = () => {
           Pesan sekarang
         </Button>
       </div>
+      {/* mobile screen */}
+
       <div className="container mx-auto p-4">
         <div className="flex flex-wrap items-center justify-center my-6">
           {/* Main Image */}
-          <div className="w-full lg:w-1/2 mb-4 lg:mb-0 hidden sm:block">
+          <div className="w-full lg:w-1/2 mb-4 lg:mb-0">
             <img
-              className="h-auto w-full rounded-md object-cover object-center md:h-[480px]"
-              src="https://a0.muscache.com/im/pictures/miso/Hosting-986006657560562155/original/58f672af-308b-4763-bb92-0eb58fd26a71.jpeg?im_w=1200"
+              className="h-auto w-full rounded-l-lg object-cover object-center md:h-[480px]"
+              src={isLoading ? isLoadingImage : penginapan?.foto[0].url}
               alt=""
             />
           </div>
           {/* Thumbnails */}
-          <div className="w-full lg:w-1/2 px-3">
+          <div className="w-full lg:w-1/2 px-3 hidden lg:block md:block">
             <div className="grid grid-cols-2 gap-2 min-h-[140px] overflow-x-scroll rounded-lg lg:overflow-visible">
-              <div>
-                <img
-                  className="object-cover object-center h-40 w-full rounded-lg md:h-60"
-                  src="https://a0.muscache.com/im/pictures/miso/Hosting-986006657560562155/original/3a4d55a0-422c-4f66-ba6d-9c85e1a68768.jpeg?im_w=720"
-                  alt=""
-                />
-              </div>
-              <div>
-                <img
-                  className="object-cover object-center h-40 w-full rounded-lg md:h-60"
-                  src="https://a0.muscache.com/im/pictures/miso/Hosting-986006657560562155/original/2a000070-414a-4710-aefe-64cf1d22b738.jpeg?im_w=720"
-                  alt=""
-                />
-              </div>
-              <div>
-                <img
-                  className="object-cover object-center h-40 w-full rounded-lg md:h-60"
-                  src="https://a0.muscache.com/im/pictures/miso/Hosting-986006657560562155/original/7a870377-3af0-4e11-b930-84fe34a5308c.jpeg?im_w=720"
-                  alt=""
-                />
-              </div>
-              <div>
-                <img
-                  className="object-cover object-center h-40 w-full rounded-lg md:h-60"
-                  src="https://a0.muscache.com/im/pictures/miso/Hosting-986006657560562155/original/bd5e6909-52c7-4f80-aca8-cce2faaffd55.jpeg?im_w=720"
-                  alt=""
-                />
-              </div>
+              {penginapan?.foto.slice(1).map((foto, index) => (
+                <div key={index}>
+                  <img
+                    className={`object-cover object-center h-[235px] w-full ${
+                      (index === 1 && "rounded-tr-lg") ||
+                      (index === 3 && "rounded-br-lg")
+                    }`}
+                    src={isLoading ? isLoadingImage : foto.url}
+                    alt=""
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -98,7 +109,7 @@ const DetailPenginapan = () => {
           {/* left Column */}
           <div className="w-full md:w-8/12 px-4">
             <h1 className="text-2xl font-bold mb-1">
-              Rumah pohon di Kecamatan Sidemen, Indonesia
+              {isLoading ? "lorem ipsum" : penginapan?.nama}
             </h1>
             <p className="text-gray-700">
               2 tamu, 1 kamar tidur, 1 tempat tidur, 1 kamar mandi
@@ -123,11 +134,10 @@ const DetailPenginapan = () => {
               </div>
             </div>
             <div className="bg-gray-100 p-3 rounded">
-              <h5 className="font-semibold text-gray-900">Description</h5>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-              quisquam provident quod maiores beatae, accusantium ipsum dolore
-              culpa repellat quasi quo voluptatem harum quaerat cumque obcaecati
-              veniam animi, a inventore!
+              <h5 className="font-semibold text-gray-900 mb-2">Deskripsi</h5>
+              {isLoading
+                ? "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam, consequatur?"
+                : penginapan?.deskripsi}
             </div>
 
             <div className="max-h-lg relative w-full mt-6">
@@ -237,13 +247,13 @@ const DetailPenginapan = () => {
             <Card>
               <CardHeader>
                 <CardTitle>
-                  Rp. 350.000
+                  <FormatPrice harga={penginapan?.harga || 0} />
                   <span className="text-sm text-gray-600 font-normal">
                     /malam
                   </span>
                 </CardTitle>
                 <CardDescription>Harga sudah termasuk pajak</CardDescription>
-                <div className="flex pt-3">
+                <div className="flex py-3">
                   <DatePicker
                     label="Tanggal mulai"
                     onDayClick={handleDateSelect}
@@ -253,15 +263,6 @@ const DetailPenginapan = () => {
                     label="Tanggal selesai"
                     onDayClick={handleDateSelect}
                     className="rounded-r-lg w-1/2 lg:w-full"
-                  />
-                </div>
-                <div className="py-3">
-                  <label htmlFor="jumlah" className="text-sm font-semibold">
-                    Jumlah
-                  </label>
-                  <Input
-                    type="number"
-                    className="focus-visible:ring-0 focus-visible:ring-offset-0"
                   />
                 </div>
                 <Button className="bg-red-600 hover:bg-red-500">

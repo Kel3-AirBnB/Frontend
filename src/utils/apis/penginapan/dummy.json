@@ -1,0 +1,204 @@
+{
+  "penginapan": [
+    {
+      "id": 1,
+      "nama": "Pondok di Balian Beach, Indonesia",
+      "alamat": "Balian Beach, Bali, Indonesia",
+      "rating": "4",
+      "foto": [
+        {
+          "url": "https://a0.muscache.com/im/pictures/7cc3c855-f90e-4d0f-9b13-3b5c2a3c4bad.jpg?im_w=1200"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1016153/original/5e249106-66d9-4638-99aa-6b8fc38f3203.jpeg?im_w=720"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/0b25f6b3-f215-4938-ac81-581eb3929047.jpg?im_w=720"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/9833de62-35b7-41f2-8a24-0d9354150ea7.jpg?im_w=720"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/de73abc2-5dc9-4962-ba32-5d28211cdde0.jpg?im_w=720"
+        }
+      ],
+      "deskripsi": "Rumah pohon Balian hanya berjarak 3 menit berjalan kaki dari pantai. Dari beranda anda bisa menyaksikan matahari terbit di pagi hari, dan menikmati pemandangan taman kami yang indah (900m2) dengan kolam renang.",
+      "harga": 500000
+    },
+    {
+      "id": 2,
+      "nama": "Pondok Lawas di Ubud, Indonesia",
+      "alamat": "Ubud, Bali, Indonesia",
+      "rating": "3",
+      "foto": [
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-744971/original/709ee149-996f-467d-af13-46fb5c20df74.jpeg?im_w=1200"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-744971/original/ed261000-30e4-4db7-94c2-5443eb245ed7.jpeg?im_w=720"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-744971/original/0963c5a3-9605-4f92-a3d9-749dacc68a35.jpeg?im_w=720"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-744971/original/e339e9fb-505a-4e88-84df-fd3b51fe1b32.jpeg?im_w=720"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-744971/original/a64c1121-47d1-4646-9661-eb90cbc88abe.jpeg?im_w=720"
+        }
+      ],
+      "deskripsi": "Pondok bambu ini adalah tempat peristirahatan eko yang terpencil di jalan kaki yang tenang dan hanya berjarak lima menit berjalan kaki ke pusat Ubud. Keranjang udara terbuka menenun kamar tidur dengan loteng mini, kamar mandi modern yang elegan, dan area tamu luar ruangan membuat tempat ini benar - benar pengalaman Bali yang unik.",
+      "harga": 300000
+    },
+    {
+      "id": 3,
+      "nama": "Rumah kecil di Kecamatan Ubud, Indonesia",
+      "alamat": "Kecamatan Ubud, Bali, Indonesia",
+      "rating": "5",
+      "foto": [
+        {
+          "url": "https://a0.muscache.com/im/pictures/5c2ea62f-4b0d-4820-bbe2-1df8cdc5c250.jpg?im_w=1200"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/99cf49c1-77bf-418c-8d86-6833182a2afa.jpg?im_w=720"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/e6657c1f-e041-42aa-b035-ade134a1cf10.jpg?im_w=720"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/41cb55c7-8e45-4eb6-abe6-348437baef0b.jpg?im_w=720"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/013e5445-9755-4b45-977f-ea9b4489c8d6.jpg?im_w=720"
+        }
+      ],
+      "deskripsi": "Lihat Haus Tiny Tinggi 6 meter (20 kaki) baru kami! Ruang kerja di dalam (17,8 meter persegi/91 kaki persegi) dengan WiFi YANG CEPAT. Lounge balkon/dapur kecil di luar (13 meter persegi/139 kaki persegi). Rumah mungil alami kami yang super efisien sangat cocok untuk pengembara digital atau pemimpi dalam bentuk apa pun. Nikmati desain luar ruangan dalam ruangan dan berjalan kaki hingga 6 langkah menuju ranjang ukuran ratu romantis dengan ruang kepala yang luas di atas Anda dan pemandangan langit yang luar biasa. Karena langit - langit yang tinggi, Anda tidak akan pernah merasa sempit. Rumah kecil kami memiliki kipas angin namun tidak ada AC.",
+      "harga": 1200000
+    },
+    {
+      "id": 4,
+      "nama": "Seluruh vila di Kecamatan Ngaglik, Indonesia",
+      "alamat": "Kecamatan Ngaglik, Daerah Istimewa Yogyakarta, Indonesia",
+      "rating": "5",
+      "foto": [
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-755396241845785102/original/35618843-5de2-4f7b-9c07-5355bef0a188.jpeg?im_w=1200"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-755396241845785102/original/6fffe12d-8963-4889-bcd2-f87976e85a34.jpeg?im_w=720"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/1956149c-f338-43c4-af91-54e471a4e9b8.jpg?im_w=720"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/e30bbd4a-797f-4fd4-9206-dc062615c6ce.jpg?im_w=720"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-755396241845785102/original/135b1701-ba86-4648-bdfe-d33bf080561e.jpeg?im_w=720"
+        }
+      ],
+      "deskripsi": "Selamat datang di tempat yang nyaman dan romantis. Vila pribadi Anda sendiri - kabin untuk 2 orang dengan kolam renang pribadi dan dinding tropis tanaman, pepohonan, dan bunga. Ini memberi Anda privasi dan kenyamanan selama Anda menginap.",
+      "harga": 1850000
+    },
+    {
+      "id": 5,
+      "nama": "Rumah kecil di Kecamatan Cimenyan, Indonesia",
+      "alamat": "Kecamatan Cimenyan, Indonesia",
+      "rating": "4",
+      "foto": [
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-997426152002576278/original/73714a43-f7ac-4aaf-9466-d9e53907cf94.jpeg?im_w=1200"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-997426152002576278/original/e8ccf4b5-4d0d-4276-bb95-c10c35a24cce.jpeg?im_w=720"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-997426152002576278/original/99ccd193-8c7f-429e-9e79-f973897e1313.jpeg?im_w=720"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-997426152002576278/original/37837c4d-b966-44c5-953f-6744d6dc0229.jpeg?im_w=720"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-997426152002576278/original/6c360085-b6a5-4a61-a1a4-381aafeaf453.jpeg?im_w=720"
+        }
+      ],
+      "deskripsi": "Vila dengan desain yang modern dan unique, bentuk bangunan yang kubus miring dengan kaca besar view langsung ke langit bintang dan bulan. Keren banget untuk foto - foto sosmed, berasa foto di luar negeri. Lokasi di perumahan elite, aman dan nyaman.",
+      "harga": 1050000
+    },
+    {
+      "id": 6,
+      "nama": "Penginapan alam di Batur, Indonesia",
+      "alamat": "Batur, Jawa Tengah, Indonesia",
+      "rating": "4,5",
+      "foto": [
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-788315531909837956/original/b373e7e4-f0fe-4711-958b-e69172994b24.jpeg?im_w=1200"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-788315531909837956/original/1832c3c3-4a85-491e-8ad7-9fbc45d563d4.jpeg?im_w=720"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-788315531909837956/original/ea19b60c-7512-400b-b0a4-e2895ebbd2f2.jpeg?im_w=720"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-788315531909837956/original/e25e2d79-4efc-460c-a22c-2bd193eca913.jpeg?im_w=720"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-788315531909837956/original/06ec454b-42e4-4b77-b29c-5104fea17ea3.jpeg?im_w=720"
+        }
+      ],
+      "deskripsi": "Vila dengan desain yang modern dan unique, bentuk bangunan yang kubus miring dengan kaca besar view langsung ke langit bintang dan bulan. Keren banget untuk foto - foto sosmed, berasa foto di luar negeri. Lokasi di perumahan elite, aman dan nyaman.",
+      "harga": 1050000
+    },
+    {
+      "id": 7,
+      "nama": "Kamar di hotel di Ajibata, Indonesia",
+      "alamat": "Simalungun, Sumatera Utara, Indonesia",
+      "rating": "4",
+      "foto": [
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1094647271173030623/original/8197468b-ed68-4437-869a-a1aa327c3828.jpeg?im_w=1200"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1094647271173030623/original/ec87de47-49e1-4006-8c28-7f3ead315c35.jpeg?im_w=720"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1094647271173030623/original/f6cba5e6-3a7b-4cd1-b1ed-b958c72407b7.jpeg?im_w=720"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1094647271173030623/original/ad37248e-553e-460e-980b-10f1e90e6ff5.jpeg?im_w=720"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1094647271173030623/original/9814aac6-f75d-4eca-8cfd-7cc560d19261.jpeg?im_w=720"
+        }
+      ],
+      "deskripsi": "Vila dengan desain yang modern dan unique, bentuk bangunan yang kubus miring dengan kaca besar view langsung ke langit bintang dan bulan. Keren banget untuk foto - foto sosmed, berasa foto di luar negeri. Lokasi di perumahan elite, aman dan nyaman.",
+      "harga": 1050000
+    },
+    {
+      "id": 8,
+      "nama": "Seluruh rumah di Blimbing, Indonesia",
+      "alamat": "Malang, Jawa Timur, Indonesia",
+      "rating": "4",
+      "foto": [
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-787577856322303035/original/c62f4205-f39f-4685-9c27-a4567739cac3.jpeg?im_w=1200"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-787577856322303035/original/6add8534-577f-4b9f-b706-cbd524e62110.jpeg?im_w=720"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-787577856322303035/original/8835bc91-af1e-4a9c-8ed7-1e7e91a65804.jpeg?im_w=720"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-787577856322303035/original/9b252c31-64a4-4659-bb48-eaa7a8ada043.jpeg?im_w=720"
+        },
+        {
+          "url": "https://a0.muscache.com/im/pictures/miso/Hosting-787577856322303035/original/0adde1bb-71ac-418e-8447-5103eb06f720.jpeg?im_w=720"
+        }
+      ],
+      "deskripsi": "Vila dengan desain yang modern dan unique, bentuk bangunan yang kubus miring dengan kaca besar view langsung ke langit bintang dan bulan. Keren banget untuk foto - foto sosmed, berasa foto di luar negeri. Lokasi di perumahan elite, aman dan nyaman.",
+      "harga": 1050000
+    }
+  ]
+}

@@ -1,38 +1,34 @@
 import { Link } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import { Heart, Star } from "lucide-react";
+import { useEffect, useState } from "react";
+import { getPenginapan } from "@/utils/apis/penginapan/api";
+import FormatPrice from "@/components/elements/FormatPrice";
+import { Penginapan } from "../utils/apis/penginapan/type";
+import isLoadingImage from "../assets/gray.png";
 
 const Home = () => {
-  const cardsData = [
-    {
-      id: 1,
-      imgSrc:
-        "https://a0.muscache.com/im/pictures/miso/Hosting-702698881683757720/original/55666499-0446-4572-a12f-42aba2f575a6.jpeg?im_w=1200",
-      title: "Nusa Penida, Bali",
-      description: "Lorem ipsum dolor sit amet.",
-    },
-    {
-      id: 2,
-      imgSrc:
-        "https://a0.muscache.com/im/pictures/miso/Hosting-702698881683757720/original/55666499-0446-4572-a12f-42aba2f575a6.jpeg?im_w=1200",
-      title: "Mandalika, Lombok",
-      description: "Lorem ipsum dolor sit amet.",
-    },
-    {
-      id: 3,
-      imgSrc:
-        "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTA2OTQxMjgxMTEyMzE3MDQ2MA%3D%3D/original/11023f6d-80d5-414d-9823-532957c163dd.jpeg?im_w=1200",
-      title: "Sleman, Yogyakarta",
-      description: "Lorem ipsum dolor sit amet.",
-    },
-    {
-      id: 4,
-      imgSrc:
-        "https://a0.muscache.com/im/pictures/hosting/Hosting-1122257324205360936/original/abc32c9e-2c8f-460a-9132-afff948f6e71.jpeg?im_w=1200",
-      title: "Bandung, Jawa Barat",
-      description: "Lorem ipsum dolor sit amet.",
-    },
-  ];
+  const [penginapan, setPenginapan] = useState<Penginapan[]>([]);
+  const [isLoading, setIsLoading] = useState(true); // State untuk menangani loading
+
+  useEffect(() => {
+    // Mengatur loading menjadi true ketika pengambilan data dimulai
+    setIsLoading(true);
+
+    // Mengambil data penginapan dari API
+    const fetchData = () => {
+      try {
+        const data = getPenginapan();
+        setPenginapan(data);
+        setIsLoading(false); // Mengatur loading menjadi false setelah data diperoleh
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setIsLoading(false); // Mengatur loading menjadi false jika terjadi kesalahan
+      }
+    };
+
+    fetchData();
+  }, []);
 
   //deklarasi meta data
   const metaData = {
@@ -47,15 +43,15 @@ const Home = () => {
       <div className="flex items-center justify-center my-6">
         <div className="container mx-auto px-4 py-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {cardsData.map((item, index) => (
+            {penginapan.map((item, index) => (
               <div
                 key={index}
                 className="relative flex w-full lg:max-w-[26rem] max-w-xl flex-col rounded-xl bg-clip-border text-gray-700"
               >
                 <div className="relative overflow-hidden rounded-xl bg-clip-border text-white shadow-lg">
                   <img
-                    src={item.imgSrc}
-                    alt={item.title}
+                    src={isLoading ? isLoadingImage : item.foto[0].url}
+                    alt={item.nama}
                     className="w-full h-80 max-w-[40rem] object-cover"
                     loading="lazy"
                   />
@@ -77,22 +73,25 @@ const Home = () => {
                       aria-label="redirect ke detail penginapan"
                     >
                       <h1 className="block font-sans text-xl font-medium leading-snug tracking-normal text-blue-gray-900 antialiased">
-                        {item.title}
+                        {item.nama}
                       </h1>
                     </Link>
                     <p className="flex items-center gap-1.5 font-sans text-base font-normal leading-relaxed text-blue-gray-900 antialiased">
                       <Star className="-mt-0.5 h-5 w-5" />
-                      5.0
+                      {item.rating}
                     </p>
                   </div>
-                  <p className="block font-sans text-base font-light leading-relaxed text-gray-700 antialiased">
-                    {item.description}
+                  <p className="my-2 block font-sans text-base font-light leading-relaxed text-gray-700 antialiased">
+                    {isLoading
+                      ? "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, sapiente."
+                      : item.deskripsi.slice(0, 75)}
+                    ...
                   </p>
-                  <p className="block font-sans text-base font-light leading-relaxed text-gray-700 antialiased">
-                    22 May - 23 May
-                  </p>
+
                   <p className="my-2">
-                    <span className="text-lg font-bold">Rp. 290.000,00</span>{" "}
+                    <span className="text-lg font-bold">
+                      <FormatPrice harga={item.harga} />
+                    </span>{" "}
                     /night
                   </p>
                 </div>

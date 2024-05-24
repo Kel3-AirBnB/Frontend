@@ -4,7 +4,7 @@ import { useAuth } from "@/utils/contexts/auth";
 import { LoginType, loginSchema } from "@/utils/apis/login/types";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { userLogin } from "@/utils/apis/login/api";
+import { userLogin } from "../utils/apis/login/api";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,12 +20,12 @@ const Login = () => {
 
   const handleLogin = async (body: LoginType) => {
     console.log(body);
-    // try {
-    //   const result = await userLogin(body);
-    //   console.log(result);
-    // } catch (error: any) {
-    //   console.log(error);
-    // }
+    try {
+      const result = await userLogin(body);
+      console.log(result);
+    } catch (error: any) {
+      console.log(error);
+    }
   };
 
   return (

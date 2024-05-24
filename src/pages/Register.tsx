@@ -3,6 +3,7 @@ import signup from "../assets/sign-up.png";
 import { useState, ChangeEvent, FormEvent } from "react";
 import { registerUser } from "../utils/apis/register/api";
 import { registerSchema, RegisterType } from "../utils/apis/register/types";
+import { Input } from "@/components/elements/Input";
 
 const Register = () => {
   const [formValues, setFormValues] = useState<RegisterType>({
@@ -11,7 +12,6 @@ const Register = () => {
     password: "",
     repeat_password: "",
     tanggal_lahir: "",
-    foto: null,
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
@@ -21,14 +21,6 @@ const Register = () => {
     setFormValues({
       ...formValues,
       [name]: value,
-    });
-  };
-
-  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0] || null;
-    setFormValues({
-      ...formValues,
-      foto: file,
     });
   };
 
@@ -58,13 +50,9 @@ const Register = () => {
     formData.append("repeat_password", formValues.repeat_password);
     formData.append("tanggal_lahir", formValues.tanggal_lahir);
 
-    if (formValues.foto) {
-      formData.append("foto", formValues.foto);
-    }
-
     try {
       const data = await registerUser(formData);
-      console.log("Registration successful:", data);
+      console.log(data);
     } catch (error) {
       console.error("Error:", error);
     }
@@ -79,11 +67,10 @@ const Register = () => {
         <h1 className="font-semibold text-2xl">Sign up</h1>
         <div className="w-4/5">
           <label htmlFor="name">Full Name</label> <br />
-          <input
+          <Input
             type="text"
             id="name"
             name="nama"
-            className="w-full border border-gray-300 rounded-md h-10 focus:outline-none p-2"
             value={formValues.nama}
             onChange={handleInputChange}
           />
@@ -91,11 +78,10 @@ const Register = () => {
         </div>
         <div className="w-4/5">
           <label htmlFor="email">Email Address</label> <br />
-          <input
+          <Input
             type="email"
             id="email"
             name="email"
-            className="w-full border border-gray-300 rounded-md h-10 focus:outline-none p-2"
             value={formValues.email}
             onChange={handleInputChange}
           />
@@ -103,11 +89,10 @@ const Register = () => {
         </div>
         <div className="w-4/5">
           <label htmlFor="password">Password</label> <br />
-          <input
+          <Input
             type="password"
             id="password"
             name="password"
-            className="w-full border border-gray-300 rounded-md h-10 focus:outline-none p-2"
             value={formValues.password}
             onChange={handleInputChange}
           />
@@ -115,11 +100,10 @@ const Register = () => {
         </div>
         <div className="w-4/5">
           <label htmlFor="repeat">Repeat Password</label> <br />
-          <input
+          <Input
             type="password"
             id="repeat"
             name="repeat_password"
-            className="w-full border border-gray-300 rounded-md h-10 focus:outline-none p-2"
             value={formValues.repeat_password}
             onChange={handleInputChange}
           />
@@ -141,17 +125,7 @@ const Register = () => {
             <p className="text-red-500">{errors.tanggal_lahir}</p>
           )}
         </div>
-        <div className="w-4/5">
-          <label htmlFor="profilepicture">Profile Picture</label> <br />
-          <input
-            type="file"
-            id="profilepicture"
-            name="profilepicture"
-            className="w-full border border-gray-300 rounded-md h-10 focus:outline-none p-2"
-            onChange={handleFileChange}
-          />
-          {errors.foto && <p className="text-red-500">{errors.foto}</p>}
-        </div>
+
         <button
           type="submit"
           className="w-4/5 p-3 rounded-full bg-red-800 text-white hover:bg-red-900"
