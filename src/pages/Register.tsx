@@ -5,7 +5,16 @@ const Register = () => {
   return (
     <div className="w-full flex justify-center py-12">
       <form className="flex flex-col items-center justify-center gap-5 w-[40%]">
-        <h1 className="font-semibold text-2xl">Sign up</h1>
+        <Link to="/" aria-label="homepage" title="Booking" className="inline-flex items-center bg-transparent">
+          <svg className="w-8 text-red-700" viewBox="0 0 24 24" strokeLinejoin="round" strokeWidth={2} strokeLinecap="round" strokeMiterlimit={10} stroke="#b91c1c" fill="none">
+            <rect x={3} y={1} width={7} height={12} />
+            <rect x={3} y={17} width={7} height={6} />
+            <rect x={14} y={1} width={7} height={6} />
+            <rect x={14} y={11} width={7} height={12} />
+          </svg>
+          <span className="ml-2 text-xl font-bold tracking-wide text-red-700 uppercase"> Booking</span>
+        </Link>
+        <h1 className="font-semibold text-xl">Sign up</h1>
         <div className="w-4/5">
           <label htmlFor="name">Full Name</label> <br />
           <input type="text" id="name" className="w-full border border-gray-300 rounded-md h-10 focus:outline-none p-2" />

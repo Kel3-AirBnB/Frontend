@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import History from "./pages/History";
 import Review from "./pages/Review";
 import DetailPenginapan from "./pages/DetailPenginapan";
+import Payment from "./pages/Payment";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/history" element={<History />} />
         <Route path="/review" element={<Review />} />
+        <Route path="/payment" element={<Payment />} />
       </Routes>
     </BrowserRouter>
   );
