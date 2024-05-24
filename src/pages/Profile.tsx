@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { IUserType, userSchema } from "@/utils/apis/user/types";
 import { deleteUser, editProfile } from "@/utils/apis/user/api";
+import { useAuth } from "@/utils/contexts/auth";
 
 //deklarasi meta data
 const metaData = {
@@ -14,6 +15,7 @@ const metaData = {
 };
 
 const Profile = () => {
+  const { user } = useAuth();
   const {
     register,
     handleSubmit,
@@ -22,7 +24,7 @@ const Profile = () => {
   } = useForm({
     resolver: zodResolver(userSchema),
     defaultValues: {
-      name: "",
+      nama: "",
       email: "",
       password: "",
       repeat_password: "",
@@ -51,7 +53,7 @@ const Profile = () => {
 
   return (
     <MainLayout meta={metaData}>
-      <p className="font-bold px-6 mt-6">Welcome, John</p>
+      <p className="font-bold px-6 mt-6">Welcome, {user.nama?.split(" ")[0]}</p>
       <Card className="mt-6 border-none">
         <CardContent>
           <div className="bg-gradient-to-r from-[#FF385C] to-[#969696] h-16 rounded-t-lg"></div>
@@ -63,8 +65,8 @@ const Profile = () => {
                 </div>
               </div>
               <div className="flex flex-col gap-2">
-                <p className="font-bold">John Doe</p>
-                <p className="text-xs text-gray-500 tracking-wider">johndoe@gmail.com</p>
+                <p className="font-bold">{user.nama}</p>
+                <p className="text-xs text-gray-500 tracking-wider">{user.email}</p>
               </div>
             </div>
 
@@ -78,9 +80,9 @@ const Profile = () => {
                     className="block w-full rounded-lg shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     placeholder="John Doe"
                     id="full-name"
-                    {...register("name")}
+                    {...register("nama")}
                   />
-                  {errors.name && <p className="text-sm text-red-500 ">{errors.name.message}</p>}
+                  {errors.nama && <p className="text-sm text-red-500 ">{errors.nama.message}</p>}
                 </div>
               </div>
 

@@ -1,8 +1,17 @@
 import { CircleUserRound, Ellipsis, Search } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "../fragments/DropdownMenu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "@/utils/contexts/auth";
 
 const Navbar = () => {
+  const { token, changeToken } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    changeToken();
+    navigate("/login");
+  };
+
   return (
     <header className="bg-white border-b py-4">
       <div className="container mx-auto flex justify-between gap-6 items-center px-4">
@@ -26,29 +35,65 @@ const Navbar = () => {
             <Search strokeWidth={1.2} />
           </button>
         </div>
-        <nav className="space-x-4">
-          <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-3 bg-transparent font-semibold py-2 px-2 lg:px-3 border border-gray-300 rounded-full hover:shadow-md" aria-label="Search">
-              <span className="text-gray-500">
-                <Ellipsis />
-              </span>
-              <span className="text-gray-500 rounded-full">
-                <CircleUserRound size={32} strokeWidth={0.5} />
-              </span>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-64 mt-1 -ml-36 py-1 px-0">
-              <Link to={"/register"}>
-                <DropdownMenuItem className="px-4 py-3 text-md font-semibold">Daftar</DropdownMenuItem>
-              </Link>
-              <Link to={"/login"}>
-                <DropdownMenuItem className="px-4 py-3 text-md font-normal">Masuk</DropdownMenuItem>
-              </Link>
-              <DropdownMenuSeparator className="border border-gray-100" />
-              <DropdownMenuItem className="px-4 py-3 text-md font-normal">Jadikan rumah Anda Airbnb</DropdownMenuItem>
-              <DropdownMenuItem className="px-4 py-3 text-md font-normal">Pusat bantuan</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </nav>
+        {token ? (
+          <nav className="space-x-4">
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-3 bg-transparent font-semibold py-2 px-2 lg:px-3 border border-gray-300 rounded-full hover:shadow-md" aria-label="Search">
+                <span className="text-gray-500">
+                  <Ellipsis />
+                </span>
+                <span className="text-gray-500 rounded-full">
+                  <CircleUserRound size={32} strokeWidth={0.5} />
+                </span>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-64 mt-1 -ml-36 py-1 px-0">
+                <Link to={"/profile"}>
+                  <DropdownMenuItem className="px-4 py-3 text-md font-semibold">Profile</DropdownMenuItem>
+                </Link>
+                <Link to={"/daftar-reservasi"}>
+                  <DropdownMenuItem className="px-4 py-3 text-md font-normal">Daftar Reservasi</DropdownMenuItem>
+                </Link>
+                <Link to={"/history"}>
+                  <DropdownMenuItem className="px-4 py-3 text-md font-normal">History</DropdownMenuItem>
+                </Link>
+                <DropdownMenuSeparator className="border border-gray-100" />
+                <Link to={"/daftar-penginapan"}>
+                  <DropdownMenuItem className="px-4 py-3 text-md font-normal">Jadikan rumah Anda Airbnb</DropdownMenuItem>
+                </Link>
+                <DropdownMenuItem className="px-4 py-3 text-md font-normal">Pusat bantuan</DropdownMenuItem>
+                <DropdownMenuItem onClick={handleLogout} className="px-4 py-3 text-md font-normal">
+                  Logout
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </nav>
+        ) : (
+          <nav>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-3 bg-transparent font-semibold py-2 px-2 lg:px-3 border border-gray-300 rounded-full hover:shadow-md" aria-label="Search">
+                <span className="text-gray-500">
+                  <Ellipsis />
+                </span>
+                <span className="text-gray-500 rounded-full">
+                  <CircleUserRound size={32} strokeWidth={0.5} />
+                </span>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-64 mt-1 -ml-36 py-1 px-0">
+                <Link to={"/register"}>
+                  <DropdownMenuItem className="px-4 py-3 text-md font-semibold">Daftar</DropdownMenuItem>
+                </Link>
+                <Link to={"/login"}>
+                  <DropdownMenuItem className="px-4 py-3 text-md font-normal">Masuk</DropdownMenuItem>
+                </Link>
+                <DropdownMenuSeparator className="border border-gray-100" />
+                <Link to={"/login"}>
+                  <DropdownMenuItem className="px-4 py-3 text-md font-normal">Jadikan rumah Anda Airbnb</DropdownMenuItem>
+                </Link>
+                <DropdownMenuItem className="px-4 py-3 text-md font-normal">Pusat bantuan</DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </nav>
+        )}
       </div>
     </header>
   );
