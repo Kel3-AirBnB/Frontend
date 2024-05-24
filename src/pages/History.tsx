@@ -1,6 +1,11 @@
 import MainLayout from "@/layouts/MainLayout";
+import { useNavigate } from "react-router-dom";
 
 const History = () => {
+  const navigate = useNavigate();
+  const handleReview = () => {
+    navigate("/review");
+  };
   return (
     <MainLayout>
       <div className="w-full my-10">
@@ -15,7 +20,9 @@ const History = () => {
               <h1>23/05/2024 - 30/05/2024</h1>
               <h1 className="text-xl font-semibold">Rp. 2.000.000</h1>
             </div>
-            <button className="p-2 rounded-md bg-red-800 hover:bg-red-900 text-white w-20 self-end">Review</button>
+            <button onClick={handleReview} className="p-2 rounded-md bg-red-800 hover:bg-red-900 text-white w-20 self-end">
+              Review
+            </button>
           </div>
         </div>
         <div className="flex gap-5 w-4/5 mx-auto p-5 rounded-md shadow-lg my-10">
@@ -28,7 +35,9 @@ const History = () => {
               <h1>30/05/2024 - 05/06/2024</h1>
               <h1 className="text-xl font-semibold">Rp. 2.500.000</h1>
             </div>
-            <button className="p-2 rounded-md bg-red-800 hover:bg-red-900 text-white w-20 self-end">Review</button>
+            <button onClick={handleReview} className="p-2 rounded-md bg-red-800 hover:bg-red-900 text-white w-20 self-end">
+              Review
+            </button>
           </div>
         </div>
         <div className="flex gap-5 w-4/5 mx-auto p-5 rounded-md shadow-lg my-10">
@@ -41,7 +50,9 @@ const History = () => {
               <h1>18/05/2024 - 30/05/2024</h1>
               <h1 className="text-xl font-semibold">Rp. 3.000.000</h1>
             </div>
-            <button className="p-2 rounded-md bg-red-800 hover:bg-red-900 text-white w-20 self-end">Review</button>
+            <button onClick={handleReview} className="p-2 rounded-md bg-red-800 hover:bg-red-900 text-white w-20 self-end">
+              Review
+            </button>
           </div>
         </div>
       </div>
