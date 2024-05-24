@@ -1,26 +1,20 @@
 import { Link } from "react-router-dom";
 import signup from "../assets/sign-up.png";
 import { useState, ChangeEvent, FormEvent } from "react";
-import { register } from "@/services/authServices";
-
-interface FormValues {
-  nama: string;
-  email: string;
-  password: string;
-  tanggal_lahir: string;
-  repeat_password: string;
-  foto: File | null;
-}
+import { registerUser } from "../utils/apis/register/api";
+import { registerSchema, RegisterType } from "../utils/apis/register/types";
 
 const Register = () => {
-  const [formValues, setFormValues] = useState<FormValues>({
+  const [formValues, setFormValues] = useState<RegisterType>({
     nama: "",
     email: "",
-    tanggal_lahir: "",
     password: "",
     repeat_password: "",
+    tanggal_lahir: "",
     foto: null,
   });
+
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -41,6 +35,22 @@ const Register = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
+    const parseResult = registerSchema.safeParse(formValues);
+
+    if (!parseResult.success) {
+      const errorMessages: { [key: string]: string } = {};
+      parseResult.error.errors.forEach((error) => {
+        if (error.path[0]) {
+          errorMessages[error.path[0]] = error.message;
+        }
+      });
+      setErrors(errorMessages);
+      console.error("Validation error:", parseResult.error);
+      return;
+    } else {
+      setErrors({});
+    }
+
     const formData = new FormData();
     formData.append("nama", formValues.nama);
     formData.append("email", formValues.email);
@@ -53,7 +63,7 @@ const Register = () => {
     }
 
     try {
-      const data = await register(formData);
+      const data = await registerUser(formData);
       console.log("Registration successful:", data);
     } catch (error) {
       console.error("Error:", error);
@@ -77,6 +87,7 @@ const Register = () => {
             value={formValues.nama}
             onChange={handleInputChange}
           />
+          {errors.nama && <p className="text-red-500">{errors.nama}</p>}
         </div>
         <div className="w-4/5">
           <label htmlFor="email">Email Address</label> <br />
@@ -88,6 +99,7 @@ const Register = () => {
             value={formValues.email}
             onChange={handleInputChange}
           />
+          {errors.email && <p className="text-red-500">{errors.email}</p>}
         </div>
         <div className="w-4/5">
           <label htmlFor="password">Password</label> <br />
@@ -99,6 +111,7 @@ const Register = () => {
             value={formValues.password}
             onChange={handleInputChange}
           />
+          {errors.password && <p className="text-red-500">{errors.password}</p>}
         </div>
         <div className="w-4/5">
           <label htmlFor="repeat">Repeat Password</label> <br />
@@ -110,6 +123,9 @@ const Register = () => {
             value={formValues.repeat_password}
             onChange={handleInputChange}
           />
+          {errors.repeat_password && (
+            <p className="text-red-500">{errors.repeat_password}</p>
+          )}
         </div>
         <div className="w-4/5">
           <label htmlFor="date">Birth</label> <br />
@@ -121,6 +137,9 @@ const Register = () => {
             value={formValues.tanggal_lahir}
             onChange={handleInputChange}
           />
+          {errors.tanggal_lahir && (
+            <p className="text-red-500">{errors.tanggal_lahir}</p>
+          )}
         </div>
         <div className="w-4/5">
           <label htmlFor="profilepicture">Profile Picture</label> <br />
@@ -131,6 +150,7 @@ const Register = () => {
             className="w-full border border-gray-300 rounded-md h-10 focus:outline-none p-2"
             onChange={handleFileChange}
           />
+          {errors.foto && <p className="text-red-500">{errors.foto}</p>}
         </div>
         <button
           type="submit"
