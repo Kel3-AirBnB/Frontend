@@ -1,14 +1,14 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import signup from "../assets/sign-up.png";
-import { useAuth } from "@/utils/contexts/auth";
+// import { useAuth } from "@/utils/contexts/auth";
 import { LoginType, loginSchema } from "@/utils/apis/login/types";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { userLogin } from "@/utils/apis/login/api";
+// import { userLogin } from "@/utils/apis/login/api";
 
 const Login = () => {
-  const navigate = useNavigate();
-  const { changeToken } = useAuth();
+  // const navigate = useNavigate();
+  // const { changeToken } = useAuth();
 
   const {
     register,

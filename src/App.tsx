@@ -4,10 +4,10 @@ import Profile from "@/pages/Profile";
 import DaftarPenginapan from "@/pages/DaftarPenginapan";
 import DaftarReservasi from "@/pages/DaftarReservasi";
 import NoPage from "@/pages/NoPage";
-import DetailPenginapan from "./pages/DetailPenginapan";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import History from "./pages/History";
+import Review from "./pages/Review";
 
 const App = () => {
   return (
@@ -24,6 +24,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/history" element={<History />} />
+        <Route path="/review" element={<Review />} />
       </Routes>
     </BrowserRouter>
   );
