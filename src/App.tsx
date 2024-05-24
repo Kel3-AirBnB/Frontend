@@ -8,6 +8,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import History from "./pages/History";
 import Review from "./pages/Review";
+import DetailPenginapan from "./pages/DetailPenginapan";
 
 const App = () => {
   return (
@@ -18,7 +19,6 @@ const App = () => {
         <Route path="/penginapan/:id_penginapan" element={<DetailPenginapan />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/daftar-penginapan" element={<DaftarPenginapan />} />
-        <Route path="/penginapan/:id_penginapan" element={<DetailPenginapan />} />
         <Route path="/daftar-reservasi" element={<DaftarReservasi />} />
         <Route path="*" element={<NoPage />} />
         <Route path="/register" element={<Register />} />
