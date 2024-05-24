@@ -5,7 +5,7 @@ const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png"];
 
 export const userSchema = z
   .object({
-    name: z.string().min(1, { message: "Enter your name" }),
+    nama: z.string().min(1, { message: "Enter your name" }),
     email: z.string().email("Enter a valid email").min(1, { message: "Enter email" }),
     password: z.string().min(6, { message: "Password must be at least 6 characters" }).optional().or(z.literal("")),
     repeat_password: z.string().min(6, { message: "Repeat Password must be at least 6 characters" }).optional().or(z.literal("")),
@@ -23,3 +23,11 @@ export const userSchema = z
   });
 
 export type IUserType = z.infer<typeof userSchema>;
+
+export type UserType = {
+  id: number;
+  nama: string;
+  email: string;
+  tanggal_lahir: string;
+  foto: string;
+};

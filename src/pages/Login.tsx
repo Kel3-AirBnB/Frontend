@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import signup from "../assets/sign-up.png";
-// import { useAuth } from "@/utils/contexts/auth";
+import { useAuth } from "@/utils/contexts/auth";
 import { LoginType, loginSchema } from "@/utils/apis/login/types";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -8,7 +8,7 @@ import { userLogin } from "@/utils/apis/login/api";
 
 const Login = () => {
   const navigate = useNavigate();
-  // const { changeToken } = useAuth();
+  const { changeToken } = useAuth();
 
   const {
     register,
@@ -19,11 +19,12 @@ const Login = () => {
   });
 
   const handleLogin = async (body: LoginType) => {
-    // console.log(body);
     try {
       const result = await userLogin(body);
-      console.log(result);
-      navigate("/");
+      if (result.message == "success login") {
+        changeToken(result.data.token);
+        navigate("/");
+      }
     } catch (error: any) {
       console.log(error);
     }

@@ -1,11 +1,11 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { IUserType } from "../apis/user/types";
+import { UserType } from "../apis/user/types";
 import axiosWithConfig, { setAxiosConfig } from "../apis/axiosWithConfig";
 import { getProfile } from "../apis/user/api";
 
 interface Context {
   token: string;
-  user: Partial<IUserType>;
+  user: Partial<UserType>;
   changeToken: (token?: string) => void;
 }
 
@@ -19,7 +19,7 @@ const AuthContext = createContext<Context>(InitialState);
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [token, setToken] = useState(localStorage.getItem("token") ?? "");
-  const [user, setUser] = useState<Partial<IUserType>>({});
+  const [user, setUser] = useState<Partial<UserType>>({});
 
   useEffect(() => {
     setAxiosConfig(token);
@@ -37,7 +37,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const fetchUser = async () => {
     try {
       const result = await getProfile();
-      setUser(result);
+      setUser(result.data);
     } catch (error: any) {
       console.log(error.response);
     }

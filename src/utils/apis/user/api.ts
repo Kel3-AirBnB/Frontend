@@ -4,7 +4,7 @@ import { IUserType } from "./types";
 export const getProfile = async () => {
   try {
     const response = await axiosWithConfig.get("/profile");
-    return response;
+    return response.data;
   } catch (error: any) {
     return error.response;
   }
